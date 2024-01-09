@@ -37,9 +37,9 @@ const getBracketsText = (str) => {
 console.log(getBracketsText(text));
 
 // task4
-const replaceUrlWithLink = (str) => {
-  const regexp4 = /(https?:\/\/[^\s]+)/g;
-  return str.replace(regexp4, '<a href=\'$1\'>$1</a>');
-};
+const replaceUrlWithLink = (url) => url.replace(/https?:\/\/([a-z0-9-]+)(\.)([a-z]+)\b/ig, (str) => {
+  const site = str.match(/[a-z0-9-]+\.[a-z0-9-]+/);
+  return `<a href="${str}">${site}</a>`;
+});
 
 console.log(replaceUrlWithLink(url));
